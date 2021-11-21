@@ -17,7 +17,7 @@ import FavoriteUtil from '../../utils/favorite';
 
 export default class ContactListScreen extends React.Component {
   static navigationOptions = {
-    title: 'Atrações',
+    title: 'Atrações Favoritas',
   };
 
   constructor(props) {
@@ -71,6 +71,7 @@ export default class ContactListScreen extends React.Component {
                   <Card.Image source={{ uri: item.photos[0] }} />
                   <Card.Divider />
                   <Card.Title style={{ fontSize: 30 }}>{item.name}</Card.Title>
+                  <Card.Title style={{fontSize: 18}}>{item.address.city}</Card.Title>
                 </Card>
               </View>
             </TouchableOpacity>

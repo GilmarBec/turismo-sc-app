@@ -48,7 +48,7 @@ export default class ContactListScreen extends React.Component {
     }
  
     const {navigate} = this.props.navigation;
-    return(
+    return (
       <ScrollView style={styles.container}>
         <FlatList
           data={this.state.contacts}
@@ -59,6 +59,7 @@ export default class ContactListScreen extends React.Component {
                   <Card.Image source={{uri: item.photos[0]}} />
                   <Card.Divider/>
                   <Card.Title style={{fontSize: 30}}>{item.name}</Card.Title>
+                  <Card.Title style={{fontSize: 18}}>{item.address.city}</Card.Title>
                 </Card>
               </View>
             </TouchableOpacity>

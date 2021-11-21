@@ -94,6 +94,7 @@ export default class AttractionDetailsScreen extends React.Component {
       tags,
       description,
       photos,
+      video,
     } = this.state.attraction;
 
     const mapUrl = Platform.select({
@@ -128,12 +129,16 @@ export default class AttractionDetailsScreen extends React.Component {
                 title="Ligar"
               />
               <Button
-                onPress={() => Linking.openURL(`mailto:${contact.email}`)}
+                onPress={() => Linking.openURL(`mailto:${contact.mail}`)}
                 title="E-mail"
               />
               <Button
                 onPress={() => Linking.openURL(`${contact.site}`)}
                 title="Website"
+              />
+              <Button
+                onPress={() => Linking.openURL(`${video}`)}
+                title="Vídeo"
               />
               <Switch
                 trackColor={{ false: '#767577', true: '#81b0ff' }}
@@ -144,19 +149,17 @@ export default class AttractionDetailsScreen extends React.Component {
               />
             </View>
           </View>
-          {
-            // <View style={(styles.container, { flex: 2 })}>
-            //   <Text style={styles.contactDetails}>Horário de funcionamento:</Text>
-            //   <FlatList
-            //     data={schedule}
-            //     keyExtractor={(_, index) => index}
-            //     renderItem={({ item }) => <Text>{item}</Text>}
-            //   />
-            // </View>
-            // <View style={(styles.container, { flex: 1 })}>
-            //   <Text style={styles.contactDetails}>Descrição: {description}</Text>
-            // </View>
-          }
+            <View style={(styles.container, { flex: 2 })}>
+              <Text style={styles.contactDetails}>Horário de funcionamento:</Text>
+              <FlatList
+                data={schedule}
+                keyExtractor={(_, index) => index}
+                renderItem={({ item }) => <Text>{item}</Text>}
+              />
+            </View>
+            <View style={(styles.container, { flex: 1 })}>
+              <Text style={styles.contactDetails}>Descrição: {description}</Text>
+            </View>
         </View>
       </ScrollView>
     );
