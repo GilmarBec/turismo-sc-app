@@ -39,7 +39,7 @@ export class FavoriteUtil {
 
     const favorites = await this.getFavorites()
     favorites.push(attractionId)
-    return AsyncStorage.setItem(this.FAVORITE_KEY, JSON.stringify([attractionId]))
+    return AsyncStorage.setItem(this.FAVORITE_KEY, JSON.stringify(favorites))
   }
 
   async removeFavorite(attractionId) {

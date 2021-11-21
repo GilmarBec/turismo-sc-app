@@ -102,6 +102,10 @@ export default class AttractionDetailsScreen extends React.Component {
       android: `geo:0,0?q=${address.latitude},${address.longitude}`,
     });
 
+    const emailButton = contact.mail ? (
+      <Button onPress={() => Linking.openURL(`${video}`)} title="Vídeo" />
+    ) : null;
+
     return (
       <ScrollView>
         <View style={styles.section}>
@@ -136,10 +140,7 @@ export default class AttractionDetailsScreen extends React.Component {
                 onPress={() => Linking.openURL(`${contact.site}`)}
                 title="Website"
               />
-              <Button
-                onPress={() => Linking.openURL(`${video}`)}
-                title="Vídeo"
-              />
+              {emailButton}
               <Switch
                 trackColor={{ false: '#767577', true: '#81b0ff' }}
                 thumbColor={this.state.isFavorite ? '#f5dd4b' : '#f4f3f4'}
@@ -149,17 +150,17 @@ export default class AttractionDetailsScreen extends React.Component {
               />
             </View>
           </View>
-            <View style={(styles.container, { flex: 2 })}>
-              <Text style={styles.contactDetails}>Horário de funcionamento:</Text>
-              <FlatList
-                data={schedule}
-                keyExtractor={(_, index) => index}
-                renderItem={({ item }) => <Text>{item}</Text>}
-              />
-            </View>
-            <View style={(styles.container, { flex: 1 })}>
-              <Text style={styles.contactDetails}>Descrição: {description}</Text>
-            </View>
+          <View style={(styles.container, { flex: 2 })}>
+            <Text style={styles.contactDetails}>Horário de funcionamento:</Text>
+            <FlatList
+              data={schedule}
+              keyExtractor={(_, index) => index}
+              renderItem={({ item }) => <Text>{item}</Text>}
+            />
+          </View>
+          <View style={(styles.container, { flex: 1 })}>
+            <Text style={styles.contactDetails}>Descrição: {description}</Text>
+          </View>
         </View>
       </ScrollView>
     );

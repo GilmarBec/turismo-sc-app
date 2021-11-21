@@ -7,12 +7,12 @@ import { BUGFENDER_APPKEY, DEFAULT_LOG_LEVELS, LOG_LEVEL } from '../config/env';
 
 export class Logger {
   static info(obj) {
-    // if (LOG_LEVEL >= DEFAULT_LOG_LEVELS.INFO)
-      // Bugfender.info(JSON.stringify(obj));
+    // if (DEFAULT_LOG_LEVELS.INFO >= LOG_LEVEL)
+    //   Bugfender.info(JSON.stringify(obj));
   }
 
   static debug(obj) {
-    // if (LOG_LEVEL >= DEFAULT_LOG_LEVELS.DEBUG)
-      // Bugfender.info(JSON.stringify(obj));
+    // if (DEFAULT_LOG_LEVELS.DEBUG >= LOG_LEVEL)
+    //   Bugfender.info(JSON.stringify(obj));
   }
 }
